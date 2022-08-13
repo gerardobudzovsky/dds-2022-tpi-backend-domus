@@ -21,16 +21,16 @@ public class PropiedadController {
         this.propiedadService = propiedadService;
     }
 
-    @GetMapping(value = "/{idPropiedad}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public Propiedad getPropiedadById(@PathVariable("idPropiedad") Long idPropiedad) throws Exception {
-        return propiedadService.getPropiedadById(idPropiedad);
-    }
-
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<Propiedad> getAllPropiedades() throws Exception {
         return propiedadService.getAllPropiedad();
+    }
+    
+    @GetMapping(value = "/{idPropiedad}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public Propiedad getPropiedadById(@PathVariable("idPropiedad") Long idPropiedad) throws Exception {
+        return propiedadService.getPropiedadById(idPropiedad);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
