@@ -39,7 +39,7 @@ public class PropiedadController {
         return propiedadService.createPropiedad(dto);
     }
 
-    @PutMapping(value = "/{idPropiedad}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{idPropiedad}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = {RequestMethod.PUT, RequestMethod.PATCH})
     @ResponseStatus(HttpStatus.OK)
     public Propiedad updatePropiedad(@RequestBody PropiedadDto dto, @PathVariable("idPropiedad") Long idPropiedad) throws Exception {
         return propiedadService.updatePropiedad(idPropiedad, dto);
