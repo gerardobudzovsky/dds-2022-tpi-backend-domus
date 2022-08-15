@@ -21,7 +21,32 @@ public class CitaService {
 		this.citaRepository = citaRepository;
 	}
 
-	public List<Cita> getAllCita() throws Exception {
+	public List<Cita> getAllCita(String keyword) throws Exception {
+		
+		if (keyword != null) {
+			return citaRepository.findByKeyword(keyword);
+		}
+		return citaRepository.findAll();
+	}
+	
+	public List<Cita> findByPropiedad_Id(Long propiedadId) {
+		return citaRepository.findByPropiedad_Id(propiedadId);
+	}
+	
+	public List<Cita> find(String propiedad_calle, Integer propiedad_numero) {
+		
+		if (propiedad_calle != null && propiedad_numero != null) {
+			return citaRepository.findByPropiedad_CalleAndPropiedad_Numero(propiedad_calle, propiedad_numero);
+		}
+		
+		if (propiedad_calle != null) {
+			return citaRepository.findByPropiedad_Calle(propiedad_calle);
+		}
+		
+		if (propiedad_numero != null) {
+			return citaRepository.findByPropiedad_Numero(propiedad_numero);
+		}
+		
 		return citaRepository.findAll();
 	}
 
