@@ -1,6 +1,7 @@
 package com.frre.utn.domus.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,19 +22,32 @@ public class CitaService {
 		this.citaRepository = citaRepository;
 	}
 
-	public List<Cita> getAllCita(String keyword) throws Exception {
+	public List<Cita> find(String keyword, String nombreSolicitante, String observaciones) throws Exception {
 		
 		if (keyword != null) {
 			return citaRepository.findByKeyword(keyword);
 		}
+		
+		if (nombreSolicitante != null && observaciones != null) {
+			return citaRepository.findByNombreSolicitanteAndObservaciones(nombreSolicitante, observaciones);
+		}
+		
+		if (nombreSolicitante != null) {
+			return citaRepository.findByNombreSolicitante(nombreSolicitante);
+		}
+		
+		if (observaciones != null) {
+			return citaRepository.findByObservaciones(observaciones);
+		}
+		
 		return citaRepository.findAll();
 	}
 	
-	public List<Cita> findByPropiedad_Id(Long propiedadId) {
-		return citaRepository.findByPropiedad_Id(propiedadId);
+	public Optional<Cita> findById (Long citaId) {
+		return citaRepository.findById(citaId);		
 	}
-	
-	public List<Cita> find(String propiedad_calle, Integer propiedad_numero) {
+		
+	public List<Cita> findByPropiedad(String propiedad_calle, Integer propiedad_numero) {
 		
 		if (propiedad_calle != null && propiedad_numero != null) {
 			return citaRepository.findByPropiedad_CalleAndPropiedad_Numero(propiedad_calle, propiedad_numero);
@@ -50,4 +64,8 @@ public class CitaService {
 		return citaRepository.findAll();
 	}
 
+	public List<Cita> findByPropiedad_Id(Long propiedadId) {
+		return citaRepository.findByPropiedad_Id(propiedadId);
+	}
+	
 }

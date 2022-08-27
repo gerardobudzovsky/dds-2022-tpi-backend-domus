@@ -10,7 +10,16 @@ import com.frre.utn.domus.entity.Cita;
 
 @Repository
 public interface CitaRepository extends JpaRepository<Cita, Long>{
-
+	
+	@Query("SELECT c FROM Cita c WHERE CONCAT(c.nombreSolicitante, ' ', c.observaciones, ' ' , c.propiedad.calle, ' ', c.propiedad.numero) LIKE %:keyword%")
+	List<Cita> findByKeyword(String keyword);
+	
+	List<Cita> findByNombreSolicitanteAndObservaciones(String nombreSolicitante, String observaciones);
+	
+	List<Cita> findByNombreSolicitante(String nombreSolicitante);
+	
+	List<Cita> findByObservaciones(String observaciones);
+	
 	List<Cita> findByPropiedad_Id(Long id);
 	
 	List<Cita> findByPropiedad_Calle(String calle);
@@ -18,8 +27,9 @@ public interface CitaRepository extends JpaRepository<Cita, Long>{
 	List<Cita> findByPropiedad_CalleAndPropiedad_Numero(String calle, Integer numero);
 
 	List<Cita> findByPropiedad_Numero(Integer propiedad_numero);
+
+
 	
-	@Query("SELECT c FROM Cita c WHERE CONCAT(c.nombreSolicitante, ' ', c.observaciones, ' ' , c.propiedad.calle, ' ', c.propiedad.numero) LIKE %:keyword%")
-	List<Cita> findByKeyword(String keyword);
+
 	
 }
