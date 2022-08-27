@@ -1,0 +1,22 @@
+openapi: 3.0.2
+info:
+  title: Domus
+  description: Interfaces disponibles para el front-end de Domus
+  version: 0.1.0
+servers:
+  - url: https://domus.com
+    description: Servidor de Produccion
+
+tags:
+  - name: citas
+    description: Controlador de Citas
+
+paths:
+  # citas
+  /citas:
+    $ref: "#/components/x-pathItems/citas"
+
+components:
+  x-pathItems:
+    citas:
+      $ref: "pathItems/citas.yaml"

@@ -1,0 +1,15 @@
+get:
+  tags:
+    - citas
+  summary: Consulta Lista de todas las Citas
+  description: Consulta Lista de todas las Citas
+  operationId: findAllCitas
+  responses:
+    "200":
+      description: "OK"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/citas/citas.yaml"
