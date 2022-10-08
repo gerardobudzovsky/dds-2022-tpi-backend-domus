@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class Propiedad {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

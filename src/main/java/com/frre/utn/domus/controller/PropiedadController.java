@@ -24,7 +24,7 @@ public class PropiedadController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<Propiedad> getAllPropiedades() throws Exception {
-        return propiedadService.getAllPropiedad();
+        return propiedadService.getAllPropiedades();
     }
     
     @GetMapping(value = "/{idPropiedad}", produces = MediaType.APPLICATION_JSON_VALUE)
