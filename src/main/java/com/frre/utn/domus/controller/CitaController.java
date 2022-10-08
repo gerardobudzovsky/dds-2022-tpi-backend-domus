@@ -17,7 +17,7 @@ import com.frre.utn.domus.entity.Cita;
 import com.frre.utn.domus.service.CitaService;
 
 @RestController
-@RequestMapping("/cita")
+@RequestMapping("/citas")
 public class CitaController {
 	
 	private CitaService citaService;
