@@ -1,33 +1,25 @@
 package com.frre.utn.domus.dto;
 
 import java.time.LocalDateTime;
-
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-
+import com.frre.utn.domus.entity.Cliente;
 import com.frre.utn.domus.entity.Propiedad;
+import com.frre.utn.domus.entity.Secretaria;
 
 import lombok.Data;
 
 @Data
 public class ReclamoDto {
+
+	private String descripcion;
 	
-    private String descripcion;
-    
-    @ManyToOne
-    @JoinColumn
-    private Propiedad propiedad;
-    
-//  @ManyToOne
-//  @JoinColumn
-//  private Cliente clienteQueReclama;
-    
-//  @ManyToOne
-//  @JoinColumn
-//  private Secretaria secretariaCreadora;
+//    private LocalDateTime fechaDeCreacion;
+//
+//    private LocalDateTime fechaDeModificacion;
+
+	private Propiedad propiedad;
+
+	private Cliente clienteQueReclama;
+
+	private Secretaria secretariaCreadora;
 
 }

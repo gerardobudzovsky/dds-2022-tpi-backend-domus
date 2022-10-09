@@ -42,12 +42,12 @@ public class Reclamo {
     @JoinColumn
     private Propiedad propiedad;
     
-//  @ManyToOne
-//  @JoinColumn
-//  private Cliente clienteQueReclama;
+	@ManyToOne
+	@JoinColumn
+	private Cliente clienteQueReclama;
     
-//  @ManyToOne
-//  @JoinColumn
-//  private Secretaria secretariaCreadora;
+	@ManyToOne
+	@JoinColumn
+	private Secretaria secretariaCreadora;
 	
 }
