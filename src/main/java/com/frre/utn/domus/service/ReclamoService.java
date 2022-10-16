@@ -26,7 +26,7 @@ public class ReclamoService {
 		this.reclamoMapper = reclamoMapper;
 	}
 	
-    public Optional<Reclamo> findById(Long idReclamo){
+    public Optional<Reclamo> findById(Long idReclamo) throws Exception{
         return reclamoRepository.findById(idReclamo);
     }
 
