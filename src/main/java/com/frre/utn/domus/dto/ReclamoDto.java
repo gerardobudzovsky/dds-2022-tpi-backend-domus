@@ -1,6 +1,5 @@
 package com.frre.utn.domus.dto;
 
-import java.time.LocalDateTime;
 import com.frre.utn.domus.entity.Cliente;
 import com.frre.utn.domus.entity.Propiedad;
 import com.frre.utn.domus.entity.Secretaria;

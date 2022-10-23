@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.frre.utn.domus.dto.PropiedadDto;
 import com.frre.utn.domus.dto.ReclamoDto;
+import com.frre.utn.domus.entity.Propiedad;
 import com.frre.utn.domus.entity.Reclamo;
 import com.frre.utn.domus.mapper.ReclamoMapper;
 import com.frre.utn.domus.repository.ReclamoRepository;
@@ -39,6 +41,18 @@ public class ReclamoService {
         Reclamo reclamoEntity = reclamoMapper.fromDto(reclamoDto);
 
         return reclamoRepository.save(reclamoEntity);
+    }
+    
+    public Reclamo updateReclamo(Long reclamoId, ReclamoDto reclamoDto) throws Exception {
+        Reclamo reclamoEntity = reclamoRepository.findById(reclamoId).orElseThrow(() -> new Exception("Error"));
+
+        reclamoEntity = reclamoMapper.merger(reclamoDto, reclamoEntity);
+
+        return reclamoRepository.save(reclamoEntity);
+    }
+    
+    public void deleteById(Long reclamoId) throws Exception {
+        reclamoRepository.deleteById(reclamoId);
     }
 	
 }
