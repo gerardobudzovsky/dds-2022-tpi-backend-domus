@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -29,7 +31,13 @@ public class Reclamo {
 //
 //    @LastModifiedDate
 //    private LocalDateTime fechaDeModificacion;
-    
+
+    private String nombreDeContacto;
+
+    private String telefonoDeContacto;
+
+    private LocalDate fecha;
+
     @ManyToOne
     @JoinColumn
     private Propiedad propiedad;

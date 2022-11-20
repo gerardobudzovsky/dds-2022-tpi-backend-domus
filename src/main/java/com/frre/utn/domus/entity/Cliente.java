@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -20,6 +22,20 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
+
+    private String tipoDeCliente;
+
+    private String apellido;
+
     private String nombre;
+
+    private String dni;
+
+    private String cuit;
+
+    private LocalDate fechaDeNacimiento;
+
+    private String telefono;
+
+    private String email;
 }

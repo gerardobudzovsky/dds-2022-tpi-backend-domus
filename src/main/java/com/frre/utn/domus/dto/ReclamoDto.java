@@ -8,6 +8,8 @@ import com.frre.utn.domus.utils.EnumEstadoReclamo;
 import com.frre.utn.domus.utils.EnumPrioridad;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 public class ReclamoDto {
 
@@ -23,7 +25,11 @@ public class ReclamoDto {
 
 	private Secretaria secretariaCreadora;
 
-	private Long telefonoCelular;
+	private String nombreDeContacto;
+
+	private String telefonoDeContacto;
+
+	private LocalDate fecha;
 
 	// este lo manda en null
 	private EnumEstadoReclamo estado;
