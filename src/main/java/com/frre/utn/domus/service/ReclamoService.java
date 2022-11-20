@@ -7,9 +7,7 @@ import com.frre.utn.domus.utils.EnumEstadoReclamo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.frre.utn.domus.dto.PropiedadDto;
 import com.frre.utn.domus.dto.ReclamoDto;
-import com.frre.utn.domus.entity.Propiedad;
 import com.frre.utn.domus.entity.Reclamo;
 import com.frre.utn.domus.mapper.ReclamoMapper;
 import com.frre.utn.domus.repository.ReclamoRepository;
@@ -41,7 +39,7 @@ public class ReclamoService {
 
         Reclamo reclamoEntity = reclamoMapper.fromDto(reclamoDto);
 
-        reclamoEntity.setEnumEstadoReclamo(EnumEstadoReclamo.EN_ESPERA);
+        reclamoEntity.setEstado(EnumEstadoReclamo.INICIADO);
 
         return reclamoRepository.save(reclamoEntity);
     }

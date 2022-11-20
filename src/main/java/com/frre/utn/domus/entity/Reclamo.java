@@ -1,12 +1,9 @@
 package com.frre.utn.domus.entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.*;
 
 import com.frre.utn.domus.utils.EnumEstadoReclamo;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import com.frre.utn.domus.utils.EnumPrioridad;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -46,5 +43,8 @@ public class Reclamo {
 	private Secretaria secretariaCreadora;
 
     @Enumerated(EnumType.STRING)
-    private EnumEstadoReclamo enumEstadoReclamo;
+    private EnumEstadoReclamo estado;
+
+    @Enumerated(EnumType.STRING)
+    private EnumPrioridad prioridad;
 }

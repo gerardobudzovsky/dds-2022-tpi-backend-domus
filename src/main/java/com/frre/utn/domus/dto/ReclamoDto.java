@@ -5,6 +5,7 @@ import com.frre.utn.domus.entity.Propiedad;
 import com.frre.utn.domus.entity.Secretaria;
 
 import com.frre.utn.domus.utils.EnumEstadoReclamo;
+import com.frre.utn.domus.utils.EnumPrioridad;
 import lombok.Data;
 
 @Data
@@ -26,5 +27,7 @@ public class ReclamoDto {
 
 	// este lo manda en null
 	private EnumEstadoReclamo estado;
+
+	private EnumPrioridad prioridad;
 
 }

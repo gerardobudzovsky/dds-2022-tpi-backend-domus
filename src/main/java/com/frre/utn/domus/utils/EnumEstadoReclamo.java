@@ -1,7 +1,7 @@
 package com.frre.utn.domus.utils;
 
 public enum EnumEstadoReclamo {
-    EN_ESPERA("EN_ESPERA"),
+    INICIADO("INICIADO"),
     ACEPTADO("ACEPTADO"),
     TERMINADO("TERMINADO"),
     CANCELADO("CANCELADO"),
