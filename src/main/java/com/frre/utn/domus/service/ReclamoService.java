@@ -3,6 +3,7 @@ package com.frre.utn.domus.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.frre.utn.domus.utils.EnumEstadoReclamo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,8 @@ public class ReclamoService {
     public Reclamo create(ReclamoDto reclamoDto) throws Exception {
 
         Reclamo reclamoEntity = reclamoMapper.fromDto(reclamoDto);
+
+        reclamoEntity.setEnumEstadoReclamo(EnumEstadoReclamo.EN_ESPERA);
 
         return reclamoRepository.save(reclamoEntity);
     }
