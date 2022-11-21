@@ -35,7 +35,11 @@ public class ReclamoService {
 
     public List<Reclamo> find(String cliente_nombre, String cliente_apellido) throws Exception {
     	
-    	return reclamoRepository.findByKeywords(cliente_nombre, cliente_apellido);
+    	if (cliente_nombre != null  || cliente_apellido != null) 
+    		return reclamoRepository.findByKeywords(cliente_nombre, cliente_apellido);
+    		
+    	
+    	return reclamoRepository.findAll();
     	
 //    	if (cliente_nombre != null && cliente_apellido != null) {
 //			return reclamoRepository.findByClienteQueReclama_NombreAndClienteQueReclama_Apellido(cliente_nombre, cliente_apellido);
