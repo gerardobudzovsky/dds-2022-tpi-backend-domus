@@ -21,9 +21,9 @@ public interface ReclamoRepository extends JpaRepository<Reclamo, Long>{
 	List<Reclamo> findByClienteQueReclama_NombreAndClienteQueReclama_Apellido(String nombre, String apellido);
 	
 	@Query("SELECT r FROM Reclamo r "
-			+ "WHERE CONCAT(r.clienteQueReclama.nombre) LIKE %:nombre%"
-			+ " AND "
-			+ "CONCAT(r.clienteQueReclama.apellido) LIKE %:apellido%"
+			+ "WHERE CONCAT(r.clienteQueReclama.nombre, ' ') LIKE %:nombre% "
+			+ "AND "
+			+ "CONCAT(r.clienteQueReclama.apellido, ' ') LIKE %:apellido%"
 		  )
 	List<Reclamo> findByKeywords(String nombre, String apellido);
 	

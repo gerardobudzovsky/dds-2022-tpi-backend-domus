@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,11 +34,13 @@ public class ClienteController {
 		this.clienteService = clienteService;
 	}
 	
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public List<Cliente> findAll() throws Exception {
-        return clienteService.findAll();
-    }
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(HttpStatus.OK)
+	public List<Cliente> find(
+			@RequestParam(name = "nombre", required = false) String nombre,
+			@RequestParam(name = "apellido", required = false) String apellido) throws Exception {
+		return clienteService.find(nombre, apellido);
+	}
     
     @GetMapping(value = "/{clienteId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)

@@ -36,14 +36,13 @@ public class ReclamoController {
 		this.reclamoService = reclamoService;
 	}
 	
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public List<Reclamo> find(
-    							@RequestParam(name = "cliente_nombre", required = false) String cliente_nombre,
-    							@RequestParam(name = "cliente_apellido", required = false) String cliente_apellido
-    		) throws Exception {
-        return reclamoService.find(cliente_nombre, cliente_apellido);
-    }
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(HttpStatus.OK)
+	public List<Reclamo> find(
+			@RequestParam(name = "cliente_nombre", required = false) String cliente_nombre,
+			@RequestParam(name = "cliente_apellido", required = false) String cliente_apellido) throws Exception {
+		return reclamoService.find(cliente_nombre, cliente_apellido);
+	}
     
     @GetMapping(value = "/{reclamoId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)

@@ -38,7 +38,6 @@ public class ReclamoService {
     	if (cliente_nombre != null  || cliente_apellido != null) 
     		return reclamoRepository.findByKeywords(cliente_nombre, cliente_apellido);
     		
-    	
     	return reclamoRepository.findAll();
     	
 //    	if (cliente_nombre != null && cliente_apellido != null) {

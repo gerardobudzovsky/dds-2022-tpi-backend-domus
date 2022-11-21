@@ -30,7 +30,11 @@ public class ClienteService {
         return clienteRepository.findById(clienteId);
     }
 
-    public List<Cliente> findAll() throws Exception {
+    public List<Cliente> find(String nombre, String apellido) throws Exception {
+    	
+    	if (nombre != null || apellido != null)
+    		return clienteRepository.findByKeywords(nombre, apellido);
+    	
         return clienteRepository.findAll();
     }
 	
