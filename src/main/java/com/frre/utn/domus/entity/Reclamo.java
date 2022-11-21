@@ -25,18 +25,11 @@ public class Reclamo {
     
     private String descripcion;
         
-//    @CreatedDate
-//    @Column(nullable = false, updatable = false)
-//    private LocalDateTime fechaDeCreacion;
-//
-//    @LastModifiedDate
-//    private LocalDateTime fechaDeModificacion;
-
     private String nombreDeContacto;
 
     private String telefonoDeContacto;
 
-    private LocalDate fecha;
+    private LocalDate fechaDeApertura;
 
     @ManyToOne
     @JoinColumn
