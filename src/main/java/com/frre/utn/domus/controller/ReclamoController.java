@@ -13,14 +13,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.frre.utn.domus.dto.PropiedadDto;
 import com.frre.utn.domus.dto.ReclamoDto;
+import com.frre.utn.domus.entity.Cita;
 import com.frre.utn.domus.entity.Propiedad;
 import com.frre.utn.domus.entity.Reclamo;
 import com.frre.utn.domus.service.ReclamoService;
+import com.frre.utn.domus.utils.EnumPrioridad;
 
 @RestController
 @RequestMapping("/reclamos")
@@ -35,8 +38,11 @@ public class ReclamoController {
 	
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public List<Reclamo> findAll() throws Exception {
-        return reclamoService.findAll();
+    public List<Reclamo> find(
+    							@RequestParam(name = "cliente_nombre", required = false) String cliente_nombre,
+    							@RequestParam(name = "cliente_apellido", required = false) String cliente_apellido
+    		) throws Exception {
+        return reclamoService.find(cliente_nombre, cliente_apellido);
     }
     
     @GetMapping(value = "/{reclamoId}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -61,5 +67,11 @@ public class ReclamoController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable("reclamoId") Long reclamoId) throws Exception {
         reclamoService.deleteById(reclamoId);
+    }
+    
+    @GetMapping(value = "/prioridad/{prioridad}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Reclamo> findByPrioridad(@PathVariable("prioridad") EnumPrioridad prioridad) throws Exception{
+    	return reclamoService.findByPrioridad(prioridad);
     }
 }
