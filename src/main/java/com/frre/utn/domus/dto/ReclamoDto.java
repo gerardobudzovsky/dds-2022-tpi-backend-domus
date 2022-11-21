@@ -10,30 +10,32 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 @Data
 public class ReclamoDto {
 
-	private String descripcion;
-	
-//    private LocalDateTime fechaDeCreacion;
-//
-//    private LocalDateTime fechaDeModificacion;
+	 private String descripcion;
+     
+	    private String nombreDeContacto;
 
-	private Propiedad propiedad;
+	    private String telefonoDeContacto;
 
-	private Cliente clienteQueReclama;
+	    private LocalDate fechaDeApertura;
 
-	private Secretaria secretariaCreadora;
+	    private Propiedad propiedad;
+	    
+		private Cliente clienteQueReclama;
+	    
+		private Secretaria secretariaCreadora;
 
-	private String nombreDeContacto;
+	    @Enumerated(EnumType.STRING)
+	    private EnumEstadoReclamo estado;
 
-	private String telefonoDeContacto;
-
-	private LocalDate fecha;
-
-	// este lo manda en null
-	private EnumEstadoReclamo estado;
-
-	private EnumPrioridad prioridad;
+	    @Enumerated(EnumType.STRING)
+	    private EnumPrioridad prioridad;
 
 }
