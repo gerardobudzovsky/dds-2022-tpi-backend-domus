@@ -23,8 +23,10 @@ public class PropiedadController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public List<Propiedad> getAllPropiedades() throws Exception {
-        return propiedadService.getAllPropiedades();
+    public List<Propiedad> find(
+    		@RequestParam(name = "cliente_id", required = false) Long clienteId
+    		) throws Exception {
+        return propiedadService.find(clienteId);
     }
     
     @GetMapping(value = "/{idPropiedad}", produces = MediaType.APPLICATION_JSON_VALUE)

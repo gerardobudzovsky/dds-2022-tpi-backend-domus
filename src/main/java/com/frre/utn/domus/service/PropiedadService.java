@@ -27,7 +27,11 @@ public class PropiedadService {
         return propiedadRepository.findById(idPropiedad).orElseThrow(() -> new Exception("Error"));
     }
 
-    public List<Propiedad> getAllPropiedades() throws Exception {
+    public List<Propiedad> find(Long clienteId) throws Exception {
+    	
+    	if (clienteId != null)
+    		return propiedadRepository.findByClientes_Id(clienteId);
+    	
         return propiedadRepository.findAll();
     }
 

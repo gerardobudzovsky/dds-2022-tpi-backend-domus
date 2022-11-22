@@ -65,4 +65,12 @@ public class ClienteController {
     public void deleteById(@PathVariable("clienteId") Long clienteId) throws Exception {
         clienteService.deleteById(clienteId);
     }
+    
+    @PostMapping(value = "/{cliente_id}/vincular_propiedad/{propiedad_id}")
+	@ResponseStatus(HttpStatus.OK)
+	public void vincularPropiedadACliente(
+			@PathVariable("cliente_id") Long clienteId,
+			@PathVariable("propiedad_id") Long propiedadId) throws Exception {
+		clienteService.vincularPropiedad(clienteId, propiedadId);
+	}
 }

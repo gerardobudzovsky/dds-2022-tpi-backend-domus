@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.frre.utn.domus.dto.PropiedadDto;
 import com.frre.utn.domus.dto.ReclamoDto;
-import com.frre.utn.domus.entity.Cita;
 import com.frre.utn.domus.entity.Propiedad;
 import com.frre.utn.domus.entity.Reclamo;
 import com.frre.utn.domus.service.ReclamoService;

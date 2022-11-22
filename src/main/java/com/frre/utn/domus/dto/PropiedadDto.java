@@ -3,35 +3,39 @@ package com.frre.utn.domus.dto;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.frre.utn.domus.entity.Cliente;
 
 @Data
 public class PropiedadDto {
 
-    private String tipo; // TODO cambiar esto por un Enum
-
-    private String pais;
-
-    private String provincia;
-
-    private String ciudad;
-
-    private String calle;
-
-    private Integer numero;
-
-    private String barrio;
-
-    private Integer espacios;
-
-    private LocalDate fechaConstruccion;
-
-    private String propietario; // TODO cambiar esto por la clase Propietario
-
-    private String descripcionBreve;
-
-    private String descripcionDetallada;
-
-    private String estado; // TODO cambiar esto por un Enum
-
-    // private ? archivosAdjuntos
+    private String codigoProp;
+    
+    private Boolean alquiler;
+    
+    private Boolean venta;
+    
+    private Boolean activa;
+    
+    private Boolean destacada;
+    
+    private String direccion;
+    
+    private String tipoDePropiedad;
+    
+    private Integer habitaciones;
+    
+    private Integer banhos;
+    
+    private String garage;
+    
+    private String fotos;
+    
+    @JsonIgnore
+	private Set<Cliente> clientes; // = new HashSet<>();
+	
 }

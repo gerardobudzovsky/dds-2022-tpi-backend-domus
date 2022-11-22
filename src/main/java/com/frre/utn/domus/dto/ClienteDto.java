@@ -3,6 +3,11 @@ package com.frre.utn.domus.dto;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.frre.utn.domus.entity.Propiedad;
 
 @Data
 public class ClienteDto {
@@ -19,8 +24,11 @@ public class ClienteDto {
 
 	private LocalDate fechaDeNacimiento;
 
-	private String telefono;
+	private String nroCelular;
 
 	private String email;
+	
+    @JsonIgnore
+	private Set<Propiedad> propiedades; // = new HashSet<>();
 
 }

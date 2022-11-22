@@ -57,4 +57,8 @@ public class ClienteService {
         clienteRepository.deleteById(clienteId);
     }
 
+	public void vincularPropiedad(Long clienteId, Long propiedadId) throws Exception{
+		clienteRepository.vincularPropiedad(clienteId, propiedadId);
+	}
+
 }
