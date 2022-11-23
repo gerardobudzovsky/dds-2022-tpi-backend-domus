@@ -28,6 +28,10 @@ public class ClienteDto {
 
 	private String email;
 	
+    private String nombreEmpresa;
+    
+    private String nroDeTelefono;
+	
     @JsonIgnore
 	private Set<Propiedad> propiedades; // = new HashSet<>();
 

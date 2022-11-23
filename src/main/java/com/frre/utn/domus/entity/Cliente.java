@@ -47,6 +47,10 @@ public class Cliente {
 
     private String email;
     
+    private String nombreEmpresa;
+    
+    private String nroDeTelefono;
+    
     @JsonIgnore
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "cliente_propiedad", joinColumns = @JoinColumn(name = "cliente_id"), inverseJoinColumns = @JoinColumn(name = "propiedad_id"))
