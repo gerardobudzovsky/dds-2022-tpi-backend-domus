@@ -1,9 +1,9 @@
 package com.frre.utn.domus.utils;
 
 public enum EnumPrioridad {
-    BAJA("BAJA"),
-    MEDIA("MEDIA"),
-    ALTA("ALTA");
+    baja("baja"),
+    media("media"),
+    alta("alta");
 
     private final String prioridad;
 
